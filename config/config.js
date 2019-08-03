@@ -6,7 +6,11 @@ const env = process.env.NODE_ENV; // 'dev' or 'prod'
 
 const dev = {
     app: {
-        port: parseInt(process.env.DEV_APP_PORT) || ''
+        port: parseInt(process.env.DEV_APP_PORT) || '',
+        saltRound: parseInt(process.env.DEV_SALT_ROUNDS) || 10,
+        jwtIssuer: process.env.DEV_JWT_ISSUER || '',
+        jwtSecret: process.env.DEV_JWT_SECRET || '',
+        jwtExpire: process.env.DEV_JWT_EXPIRE || ''
     },
     db: {
         host: process.env.DEV_DB_HOST || 'localhost',
@@ -17,7 +21,10 @@ const dev = {
 
 const prod = {
     app: {
-        port: parseInt(process.env.PROD_APP_PORT) || ''
+        port: parseInt(process.env.PROD_APP_PORT) || '',
+        saltRound: parseInt(process.env.PROD_SALT_ROUNDS) || 10,
+        jwtIssuer: process.env.DEV_JWT_ISSUER || '',
+        jwtSecret: process.env.DEV_JWT_SECRET || ''
     },
     db: {
         host: process.env.PROD_DB_HOST || 'localhost',

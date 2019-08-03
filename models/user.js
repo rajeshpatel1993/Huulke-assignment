@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const saltRounds = 10;
+const config = require("../config/config");
+
+const saltRounds = config["app"].saltRound;
 const GENDERS = ["M", "F"];
 
 const Schema = mongoose.Schema;

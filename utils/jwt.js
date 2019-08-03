@@ -1,7 +1,10 @@
-
 const jwt = require('jsonwebtoken');
-const secret = "aifsf";
+const config = require("../config/config");
 
+const issuer = config['app'].jwtIssuer;
+const secret = config['app'].jwtSecret;
+const server_port = config["app"].port;
+const expiresIn = config["app"].jwtExpire;
 module.exports = {
   validateJWT: (req, res, next) => {
     const authorizationHeaader = req.headers.authorization;
@@ -9,8 +12,8 @@ module.exports = {
     if (authorizationHeaader) {
       const token = req.headers.authorization.split(' ')[1]; // Bearer <token>
       const options = {
-        expiresIn: '8h',
-        issuer: 'http://localhost:3100'
+        expiresIn: expiresIn,
+        issuer: `http://${issuer}:${server_port}`
       };
       try {
         // verify makes sure that the token hasn't expired and has been issued by us
