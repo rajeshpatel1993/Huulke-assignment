@@ -10,7 +10,8 @@ const dev = {
         saltRound: parseInt(process.env.DEV_SALT_ROUNDS) || 10,
         jwtIssuer: process.env.DEV_JWT_ISSUER || '',
         jwtSecret: process.env.DEV_JWT_SECRET || '',
-        jwtExpire: process.env.DEV_JWT_EXPIRE || ''
+        jwtExpire: process.env.DEV_JWT_EXPIRE || '',
+        imageUrl: process.env.DEV_IMAGE_URL || ''
     },
     db: {
         host: process.env.DEV_DB_HOST || 'localhost',
@@ -21,10 +22,12 @@ const dev = {
 
 const prod = {
     app: {
-        port: parseInt(process.env.PROD_APP_PORT) || '',
-        saltRound: parseInt(process.env.PROD_SALT_ROUNDS) || 10,
+        port: parseInt(process.env.DEV_APP_PORT) || '',
+        saltRound: parseInt(process.env.DEV_SALT_ROUNDS) || 10,
         jwtIssuer: process.env.DEV_JWT_ISSUER || '',
-        jwtSecret: process.env.DEV_JWT_SECRET || ''
+        jwtSecret: process.env.DEV_JWT_SECRET || '',
+        jwtExpire: process.env.DEV_JWT_EXPIRE || '',
+        imageUrl: process.env.DEV_IMAGE_URL || ''
     },
     db: {
         host: process.env.PROD_DB_HOST || 'localhost',
